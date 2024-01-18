@@ -1,8 +1,33 @@
 li {
     list-style: none;
+    margin: 0 auto;
+}
+
+img {
+    width: 105px;
+    height: 150px;
+    @media (min-width: 768px) {
+        width: 210px;
+        height: 295px;
+    }
+}
+
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    justify-content: center;
+    align-items: center;
+    @media (min-width: 768px) {
+        width: 20vw;
+    }        
+}
+h2{
+    margin-bottom: 4%;
 }
 
 .form {
+    margin: 20px;
     border: 2px solid rgb(31, 167, 95);
     display: flex;
     gap: 20px;
@@ -15,24 +40,34 @@ li {
 
 .container {
     display: flex;
-    gap: 50px;
-    padding-left: 20px;
-    margin-top: 50px;
-
+    gap: 20px;
+    margin: 50px 20px;
+    
     &__fav {
         padding: 20px;
         border: 2px solid rgb(236, 48, 196);
         display: flex;
         flex-direction: column;
         gap: 30px;
+        min-width: 15vw;
         
+        &--ul{
+            display: flex;
+            flex-wrap: column;
+            gap: 20px;
+        }   
     }
     &__res {
         padding: 20px;
         border: 2px solid rgb(68, 38, 203);
-        width: 70vh;
         display: flex;
         flex-direction: column;
+        // align-items: center;
         gap: 30px;
+        &--ul{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
     }
 }
