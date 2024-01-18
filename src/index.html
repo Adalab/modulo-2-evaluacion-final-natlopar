@@ -6,8 +6,35 @@
     <title>Buscador de series de Anime</title>
     <link rel="stylesheet" href="./scss/main.scss">
   </head>
-
   <body>
-    <script src="js/main.js"></script>
+    <header class="header">
+      <h1>Buscador de Series de Anime</h1>
+    </header>
+    <main>
+      <form class="form">
+          <input type="text" class="form__input js-input">
+          <input type="submit" value="Buscar" class="form__btn js-btnSearch ">
+          <button class="form__btn">Reset</button>
+      </form>
+      <div class="container">
+        <section class="container__fav">
+          <h2>Series Favoritas</h2>
+          <ul class="js-containerFav">
+            <!-- <li>
+              <article>
+                <h3>tarjeta </h3>
+                <img src="" alt="">
+              </article>
+            </li> -->
+          </ul>
+        </section>
+        <section class="container__res">
+          <section >
+          <h2>Resultados</h2>
+          <ul class="js-containerRes"></ul>
+        </section>
+      </div>
+    </main>
+    <script type=text/javascript src="js/main.js"></script>
   </body>
 </html>

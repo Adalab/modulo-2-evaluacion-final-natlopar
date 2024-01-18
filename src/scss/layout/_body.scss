@@ -1,0 +1,38 @@
+li {
+    list-style: none;
+}
+
+.form {
+    border: 2px solid rgb(31, 167, 95);
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    &__input{
+        height: 30px;
+        width: 300px;
+    }
+}
+
+.container {
+    display: flex;
+    gap: 50px;
+    padding-left: 20px;
+    margin-top: 50px;
+
+    &__fav {
+        padding: 20px;
+        border: 2px solid rgb(236, 48, 196);
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        
+    }
+    &__res {
+        padding: 20px;
+        border: 2px solid rgb(68, 38, 203);
+        width: 70vh;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}

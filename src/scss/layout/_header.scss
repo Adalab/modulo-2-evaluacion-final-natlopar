@@ -1,5 +1,6 @@
-.page__header {
+.header {
+  height: 150px;
   display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3rem;
+  justify-content: center;
+  align-items: center;
 }
