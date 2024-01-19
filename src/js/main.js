@@ -26,7 +26,7 @@ function renderSeries(arraySeries, container) {
   for (const serie of arraySeries) {
     const titleText = document.createTextNode(serie.title);
     let imageUrl = serie.images.jpg.image_url;
-    const newImageUrl = 'https://placehold.co/210x295?text=No\Image\Found';
+    const newImageUrl = 'https://placehold.co/210x295?text=NoImageFound';
     if (
       imageUrl ===
       'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'
@@ -81,11 +81,11 @@ function listenerSelectFavorites() {
 function handleAddFavorite(event) {
   const card = event.currentTarget;
   const liResult = card.parentElement;
-  card.classList.add('favorite');
-  console.log(liResult);
+
   if (liResult.classList.contains('js-liResult')) {
+    card.classList.add('favorite');
     //quiero que solo lo haga en las fotos de resultados, no en favoritos
-    
+
     const idCardSelected = card.id;
     const foundSerieId = seriesResult.find(
       (oneSerie) => parseInt(idCardSelected) === oneSerie.mal_id
@@ -100,8 +100,28 @@ function handleAddFavorite(event) {
     renderSeries(favoriteSeries, containerFav);
     localStorage.setItem('series', JSON.stringify(favoriteSeries));
   }
+  card.addEventListener('click', handleResetFavorite);
+
 }
 
+
+function handleResetFavorite (event) {
+  const card = event.currentTarget;
+  card.classList.remove('favorite');
+  const idCardSelected = card.id;
+  // const foundSerieId = seriesResult.find((oneSerie) => parseInt(idCardSelected) === oneSerie.mal_id);
+  const indexFav = favoriteSeries.findIndex((oneSerie) => oneSerie.mal_id === parseInt(idCardSelected));
+  // const indexRemove = favoriteSeries.findIndex(
+  //   (serie) => serie.mal_id === parseInt(idFavoriteClick)
+  // );
+  favoriteSeries.splice(indexFav, 1);
+  localStorage.setItem('series', JSON.stringify(favoriteSeries));
+  renderSeries(favoriteSeries, containerFav);
+  handleAddFavorite();
+  
+
+
+}
 function getLocalSeries() {
   const seriesLocalStorage = JSON.parse(localStorage.getItem('series'));
   if (seriesLocalStorage) {
@@ -114,36 +134,22 @@ getLocalSeries();
 function handleRemoveFavorite(event) {
   const btnClick = event.currentTarget;
   const articleClick = btnClick.parentElement;
-  console.log(articleClick);
   const idFavoriteClick = btnClick.id;
-  console.log(parseInt(idFavoriteClick));
+
   const indexRemove = favoriteSeries.findIndex(
     (serie) => serie.mal_id === parseInt(idFavoriteClick)
   );
   favoriteSeries.splice(indexRemove, 1);
-  localStorage.setItem('series',JSON.stringify(favoriteSeries));
+
+  localStorage.setItem('series', JSON.stringify(favoriteSeries));
   renderSeries(favoriteSeries, containerFav);
 
-  //qUITAR LA CLASE EN RESULTS
-  // const indexResult = seriesResult.findIndex(
-  //   (serie) => serie.mal_id === parseInt(idFavoriteClick));
-  
-  //   if(serie.mal_id === parseInt(idFavoriteClick)) {
-    // }
-    for(const serie of seriesResult){
-    const articlesCheck = document.querySelectorAll('.favorite')
-    for(const articleCheck of articlesCheck){
-     if(serie.mal_id === parseInt(idFavoriteClick)){
-      articleCheck.classList.remove('favorite');
-     }
-    }
-      //me borra todos, tengo que hacer que me borre solo el que tenga esa id//
-      
+  const articles = document.querySelectorAll('.js-article');
+  console.log(articles);
+  for (const article of articles) {
+    const idArticle = article.id;
+    if (articleClick.id === idArticle) {
+      article.classList.remove('favorite');
     }
   }
-  
-  // console.log(newResultsSeries);
-  
-    // card.classList.add('favorite');
-
-
+}
