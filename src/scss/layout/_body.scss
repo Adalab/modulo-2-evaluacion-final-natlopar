@@ -7,8 +7,8 @@ img {
     width: 105px;
     height: 150px;
     @media (min-width: 768px) {
-        width: 210px;
-        height: 295px;
+        width: 157px;
+        height: 225px;
     }
 }
 
@@ -18,9 +18,10 @@ article {
     gap: 5px;
     justify-content: center;
     align-items: center;
-    @media (min-width: 768px) {
-        width: 20vw;
-    }        
+    width: 20vw;
+    // @media (min-width: 768px) {
+    //     width: 20vw;
+    // }        
 }
 h2{
     margin-bottom: 4%;
@@ -28,10 +29,9 @@ h2{
 
 .form {
     margin: 20px;
-    border: 2px solid rgb(31, 167, 95);
     display: flex;
-    gap: 20px;
-    padding: 20px;
+    gap: 10px;
+    width: 100vw;
     &__input{
         height: 30px;
         width: 300px;
@@ -41,6 +41,7 @@ h2{
 .container {
     display: flex;
     gap: 20px;
+    width: 100vw;
     margin: 50px 20px;
     
     &__fav {
