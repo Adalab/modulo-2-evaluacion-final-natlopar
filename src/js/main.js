@@ -5,7 +5,7 @@ const btnSearch = document.querySelector('.js-btnSearch');
 const containerFav = document.querySelector('.js-containerFav');
 const containerRes = document.querySelector('.js-containerRes');
 
-let seriesResult = []; // array.data, contiene los arrays
+let seriesResult = []; 
 let favoriteSeries = [];
 
 function handleSearchApi(event) {
@@ -109,19 +109,14 @@ function handleResetFavorite (event) {
   const card = event.currentTarget;
   card.classList.remove('favorite');
   const idCardSelected = card.id;
-  // const foundSerieId = seriesResult.find((oneSerie) => parseInt(idCardSelected) === oneSerie.mal_id);
   const indexFav = favoriteSeries.findIndex((oneSerie) => oneSerie.mal_id === parseInt(idCardSelected));
-  // const indexRemove = favoriteSeries.findIndex(
-  //   (serie) => serie.mal_id === parseInt(idFavoriteClick)
-  // );
   favoriteSeries.splice(indexFav, 1);
   localStorage.setItem('series', JSON.stringify(favoriteSeries));
   renderSeries(favoriteSeries, containerFav);
-  handleAddFavorite();
-  
-
-
+  // handleAddFavorite()???;
 }
+
+
 function getLocalSeries() {
   const seriesLocalStorage = JSON.parse(localStorage.getItem('series'));
   if (seriesLocalStorage) {
