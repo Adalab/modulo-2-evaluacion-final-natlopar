@@ -39,17 +39,23 @@ container.innerHTML= '';  //esto tengo que hacerlo para que cuando llame a rende
     const articleEl = document.createElement('article');
     const img = document.createElement('img');
     const title = document.createElement('h3');
+    const icon = document.createElement('i');
     img.setAttribute('src', imageUrl);
-    img.setAttribute('alt', 'imagen anime');
+    img.setAttribute('class', 'card__img');
+    // img.setAttribute('alt', 'imagen anime');
     container.appendChild(li);
     li.appendChild(articleEl);
     articleEl.appendChild(img);
     title.appendChild(titleText);
-    articleEl.setAttribute('class', 'js-article');
+    icon.setAttribute('class', 'fa-solid fa-circle-xmark js-btnRemove card__btn' );
+    articleEl.setAttribute('class', 'js-article card');
     articleEl.setAttribute('id', idCard);
     articleEl.appendChild(title);
+    if (container === containerFav) {
+        articleEl.appendChild(icon);
+    }
+    container.appendChild(li);
     listenerSeries();
- 
   }
 }
 
