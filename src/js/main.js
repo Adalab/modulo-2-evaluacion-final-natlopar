@@ -4,6 +4,7 @@ const input = document.querySelector('.js-input');
 const btnSearch = document.querySelector('.js-btnSearch');
 const containerFav = document.querySelector('.js-containerFav');
 const containerRes = document.querySelector('.js-containerRes');
+let card = '';
 
 let seriesResult = []; 
 let favoriteSeries = [];
@@ -59,7 +60,7 @@ function renderSeries(arraySeries, container) {
       articleEl.removeChild(icon);
     }
     container.appendChild(li);
-    listenerSelectFavorites();
+    listenerClickResult();
     listenerRemoveFavorites();
   }
 
@@ -71,49 +72,49 @@ function renderSeries(arraySeries, container) {
   }
 }
 
-function listenerSelectFavorites() {
+function listenerClickResult() {
   const articles = document.querySelectorAll('.js-article');
   for (const article of articles) {
-    article.addEventListener('click', handleAddFavorite);
+    article.addEventListener('click', handleClickResults);
   }
 }
 
-function handleAddFavorite(event) {
-  const card = event.currentTarget;
-  const liResult = card.parentElement;
+function handleClickResults(event) {
+  card = event.currentTarget;
+  if (card.classList.contains('favorite')){
+    removeFavorite ();
+  } else {
+    addFavorite ();
+  }
+  
+}
 
+function addFavorite (event) {
+  const liResult = card.parentElement;
   if (liResult.classList.contains('js-liResult')) {
     card.classList.add('favorite');
-    //quiero que solo lo haga en las fotos de resultados, no en favoritos
-
     const idCardSelected = card.id;
     const foundSerieId = seriesResult.find(
       (oneSerie) => parseInt(idCardSelected) === oneSerie.mal_id
-    );
-    //    console.log(foundSerieId);//POR FIN CONSIGO EL OBJETO CLICKADO!!
-    const indexFav = favoriteSeries.findIndex(
-      (oneSerie) => oneSerie.mal_id === parseInt(idCardSelected)
-    );
+    );//    console.log(foundSerieId);//POR FIN CONSIGO EL OBJETO CLICKADO!!
+    const indexFav = favoriteSeries.findIndex((oneSerie) => oneSerie.mal_id === parseInt(idCardSelected));
     if (indexFav === -1) {
       favoriteSeries.push(foundSerieId);
     }
     renderSeries(favoriteSeries, containerFav);
     localStorage.setItem('series', JSON.stringify(favoriteSeries));
   }
-  card.addEventListener('click', handleResetFavorite);
-
-}
+};
 
 
-function handleResetFavorite (event) {
-  const card = event.currentTarget;
+function removeFavorite (event) {
   card.classList.remove('favorite');
   const idCardSelected = card.id;
   const indexFav = favoriteSeries.findIndex((oneSerie) => oneSerie.mal_id === parseInt(idCardSelected));
   favoriteSeries.splice(indexFav, 1);
   localStorage.setItem('series', JSON.stringify(favoriteSeries));
   renderSeries(favoriteSeries, containerFav);
-  // handleAddFavorite()???;
+ 
 }
 
 
@@ -140,7 +141,7 @@ function handleRemoveFavorite(event) {
   renderSeries(favoriteSeries, containerFav);
 
   const articles = document.querySelectorAll('.js-article');
-  console.log(articles);
+  console.log(articles);//extraer funcion de lo siguiente...
   for (const article of articles) {
     const idArticle = article.id;
     if (articleClick.id === idArticle) {
