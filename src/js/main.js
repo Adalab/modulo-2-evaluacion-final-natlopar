@@ -127,11 +127,19 @@ function handleRemoveFavorite(event) {
   //qUITAR LA CLASE EN RESULTS
   // const indexResult = seriesResult.findIndex(
   //   (serie) => serie.mal_id === parseInt(idFavoriteClick));
-  // for(const serie of seriesResult){
+  
   //   if(serie.mal_id === parseInt(idFavoriteClick)) {
-  //     articleClick.classList.remove('favorite');
-  //   }
-
+    // }
+    for(const serie of seriesResult){
+    const articlesCheck = document.querySelectorAll('.favorite')
+    for(const articleCheck of articlesCheck){
+     if(serie.mal_id === parseInt(idFavoriteClick)){
+      articleCheck.classList.remove('favorite');
+     }
+    }
+      //me borra todos, tengo que hacer que me borre solo el que tenga esa id//
+      
+    }
   }
   
   // console.log(newResultsSeries);
