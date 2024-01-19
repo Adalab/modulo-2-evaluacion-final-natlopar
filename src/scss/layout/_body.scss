@@ -1,84 +1,83 @@
 li {
-    list-style: none;
-    margin: 0 auto;
+  list-style: none;
+  margin: 0 auto;
 }
 
 .card {
-    display: flex;
-    flex-direction: column;
-    gap: 3px;
-    justify-content: center;
-    align-items: center;
-    width: 20vw;
-    // @media (min-width: 768px) {
-    //     width: 20vw;
-    // }  
-    &__btn {
-        align-self: flex-end;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  justify-content: center;
+  align-items: center;
+ 
+  // @media (min-width: 768px) {
+  //     width: 20vw;
+  // }
+  &__btn {
+    align-self: flex-end;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  &__img {
+    width: 105px;
+    height: 150px;
+    @media (min-width: 768px) {
+      width: 157px;
+      height: 225px;
     }
-    &__img {
-        width: 105px;
-        height: 150px;
-        @media (min-width: 768px) {
-            width: 157px;
-            height: 225px;
-        }
-    }
-
-    
+  }
 }
 
-
-h2{
-    margin-bottom: 4%;
+h2 {
+  margin-bottom: 4%;
 }
 
 .form {
-    margin: 20px;
-    display: flex;
-    gap: 10px;
-    width: 100vw;
-    &__input{
-        height: 30px;
-        width: 300px;
-    }
+  margin: 20px;
+  display: flex;
+  gap: 10px;
+  width: 100vw;
+  &__input {
+    height: 30px;
+    width: 300px;
+  }
 }
 
 .container {
+  display: flex;
+  gap: 20px;
+  width: 100vw;
+  margin: 50px 20px;
+
+  &__fav {
+    padding: 20px;
+    border: 2px solid rgb(236, 48, 196);
     display: flex;
-    gap: 20px;
-    width: 100vw;
-    margin: 50px 20px;
-    
-    &__fav {
-        padding: 20px;
-        border: 2px solid rgb(236, 48, 196);
-        display: flex;
-        flex-direction: column;
-        gap: 30px;
-        
-        &--ul{
-            display: flex;
-            flex-wrap: column;
-            gap: 20px;
-        }   
+    flex-direction: column;
+    gap: 30px;
+
+    &--ul {
+      display: flex;
+      flex-wrap: column;
+      gap: 20px;
     }
-    &__res {
-        padding: 20px;
-        border: 2px solid rgb(68, 38, 203);
-        display: flex;
-        flex-direction: column;
-        // align-items: center;
-        gap: 30px;
-        &--ul{
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+  }
+  &__res {
+    padding: 20px;
+    border: 2px solid rgb(68, 38, 203);
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    gap: 30px;
+    &--ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
     }
+  }
 }
 
 .favorite {
-    background-color: pink;
-    color:red;
+  background-color: pink;
+  color: red;
 }
