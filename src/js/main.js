@@ -9,7 +9,8 @@ let favoriteSeries = [];
 
 function handleSearchApi(event) {
   event.preventDefault();
-  const inputValue = input.value;
+  const inputValue = input.value.toLowerCase();
+  console.log(inputValue);
   fetch(`https://api.jikan.moe/v4/anime?q=${inputValue}`)
     .then((response) => response.json())
     .then((dataApi) => {
@@ -20,9 +21,11 @@ function handleSearchApi(event) {
 
 btnSearch.addEventListener('click', handleSearchApi);
 
-function renderSeries(seriesResult, containerRes) {
-  for (const serie of seriesResult) {
+function renderSeries(arraySeries, container) {
+  for (const serie of arraySeries) {
     const idCard = serie.mal_id;
+    // console.log(serie);
+    // console.log(idCard);
     const titleText = document.createTextNode(serie.title);
     let imageUrl = serie.images.jpg.image_url;
     const newImageUrl = 'https://placehold.co/210x295?text=Image';
@@ -38,7 +41,7 @@ function renderSeries(seriesResult, containerRes) {
     const title = document.createElement('h3');
     img.setAttribute('src', imageUrl);
     img.setAttribute('alt', 'imagen anime');
-    containerRes.appendChild(li);
+    container.appendChild(li);
     li.appendChild(articleEl);
     articleEl.appendChild(img);
     title.appendChild(titleText);
@@ -46,6 +49,7 @@ function renderSeries(seriesResult, containerRes) {
     articleEl.setAttribute('id', idCard);
     articleEl.appendChild(title);
     listenerSeries();
+ 
   }
 }
 
@@ -59,17 +63,16 @@ function listenerSeries() {
 function handleAddFavorites(event) {
   const card = event.currentTarget;
   card.classList.add('favorite');
-  console.log(card.id);
-
-  const idCardSelected = event.currentTarget.id;
-  card.classList.add('favorite');
-  const foundSerieId = seriesResult.find((oneSerie) => {
-       if(idCardSelected === oneSerie.mal_id) {
-        favoriteSeries.push(oneSerie);
-       } ;
-   
-    })
+  const idCardSelected = card.id;
+  const foundSerieId = seriesResult.find((oneSerie) => 
+    parseInt(idCardSelected) === oneSerie.mal_id
+    );
+   console.log(foundSerieId);//POR FIN CONSIGO EL OBJETO CLICKADO!!
+    favoriteSeries.push(foundSerieId);
     console.log(favoriteSeries);
-  }
+
+    ///si ya está en el array, no añadirlo, o sea antes del push
+    renderSeries(favoriteSeries, containerFav);
+}
 
 
