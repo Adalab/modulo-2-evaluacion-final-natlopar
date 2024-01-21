@@ -7,7 +7,6 @@ const containerRes = document.querySelector('.js-containerRes');
 const btnRemoveAll = document.querySelector('.js-removeFav');
 const btnReset = document.querySelector('.js-reset');
 let card = '';
-
 let seriesResult = [];
 let favoriteSeries = [];
 
@@ -49,6 +48,7 @@ function renderSeries(arraySeries, container) {
     li.appendChild(articleEl);
     articleEl.appendChild(icon);
     articleEl.appendChild(img);
+    title.setAttribute('class', 'card__title');
     title.appendChild(titleText);
     icon.setAttribute(
       'class',

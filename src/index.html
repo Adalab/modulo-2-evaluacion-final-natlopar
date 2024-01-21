@@ -6,8 +6,8 @@
     <title>Buscador de series de Anime</title>
     <link rel="stylesheet" href="./scss/main.scss">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link rel="icon" href="/public/images/_d087aaaf-2138-441f-8d03-dd4382de4583.jpeg" />
     <script src="https://kit.fontawesome.com/40a2c402a8.js" crossorigin="anonymous"></script>
   </head>
@@ -15,18 +15,13 @@
     <header class="header">
       <h1 class="header__title">Buscador de Series de Anime</h1>
     </header>
-    <main>
+    <main class="main">
       <form class="form">
           <input type="text" class="form__input js-input" placeholder="Ejemplo: Sailor Moon">
           <input type="submit" value="Buscar" class="form__btn js-btnSearch">
           <button class="form__btn js-reset">Reset</button>
       </form>
       <div class="container">
-        <!-- <article class="card">
-          <i class="fa-solid fa-circle-xmark js-btnRemove js-btnRemove card__btn"></i>
-          <img src="'https://placehold.co/210x295?text=Image'" alt="" class="card__img">
-          <h3 class="card__title">title</h3>
-        </article> -->
         <section class="container__fav">
           <h2 class="container__fav--title">Series Favoritas</h2>
           <ul class="container__fav--ul js-containerFav">
@@ -36,8 +31,12 @@
         <section class="container__res">
           <h2 class="container__res--title">Resultados</h2>
           <ul class="container__res--ul js-containerRes"></ul>
+        </section>
       </div>
     </main>
+    <footer class="footer">
+      <p class="footer__text">Natalia López Ariel &copy; Todos los derechos reservados</p>
+    </footer>
     <script type=text/javascript src="js/main.js"></script>
   </body>
 </html>
