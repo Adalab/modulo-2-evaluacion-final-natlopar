@@ -4,7 +4,8 @@ const input = document.querySelector('.js-input');
 const btnSearch = document.querySelector('.js-btnSearch');
 const containerFav = document.querySelector('.js-containerFav');
 const containerRes = document.querySelector('.js-containerRes');
-const btnRemoveAll = document.querySelector('.js-removeFav')
+const btnRemoveAll = document.querySelector('.js-removeFav');
+const btnReset = document.querySelector('.js-reset');
 let card = '';
 
 let seriesResult = [];
@@ -62,19 +63,17 @@ function renderSeries(arraySeries, container) {
       articleEl.removeChild(icon);
       if(seriesLocalStorage) {
         for(const serie of seriesLocalStorage){
-          console.log(serie.mal_id);
           if (parseInt(articleEl.id) === serie.mal_id) {
-          articleEl.setAttribute('class', 'js-article card favorite');
-          } else {
-            articleEl.setAttribute('class', 'js-article card');
+          articleEl.classList.add('favorite');
           }
-      }
-    }
-  }
+        }
+      } 
     container.appendChild(li);
-    listenerClickResult();
-    listenerRemoveFavorites();
+
   }
+  listenerClickResult();
+  listenerRemoveFavorites();
+}
 }
 
 function listenerRemoveFavorites() {
@@ -98,6 +97,7 @@ function handleClickResults(event) {
   } else {
     addFavorite();
   }
+  
 }
 
 function addFavorite(event) {
@@ -111,16 +111,10 @@ function addFavorite(event) {
     const indexFav = favoriteSeries.findIndex(
       (oneSerie) => oneSerie.mal_id === parseInt(idCardSelected)
     );
-    // const indexRes = seriesResult.findIndex(
-    //   (oneSerie) => oneSerie.mal_id === parseInt(idCardSelected)
-    // );
+  
     if (indexFav === -1) {
       favoriteSeries.push(foundSerieId);
     }
-    // const newArraySeries = seriesResult.map((serie) => {
-    //   if(serie.mal_id === parseInt(card.id)) {
-
-    //   }
   }
 
   renderSeries(favoriteSeries, containerFav);
@@ -148,6 +142,7 @@ function getLocalSeries() {
 getLocalSeries();
 
 function handleRemoveFavorite(event) {
+  console.log('click');
   const btnClick = event.currentTarget;
   const articleClick = btnClick.parentElement;
   const idFavoriteClick = btnClick.id;
@@ -160,14 +155,22 @@ function handleRemoveFavorite(event) {
   localStorage.setItem('series', JSON.stringify(favoriteSeries));
   renderSeries(favoriteSeries, containerFav);
 
+
   const articles = document.querySelectorAll('.js-article');
-  console.log(articles); //extraer funcion de lo siguiente...
   for (const article of articles) {
     const idArticle = article.id;
     if (articleClick.id === idArticle) {
       article.classList.remove('favorite');
     }
   }
+
+
+
+
+}
+
+function changeStyleArticle(articleClick) {
+
 }
 
 function handleRemoveAll () {
@@ -177,5 +180,15 @@ function handleRemoveAll () {
   renderSeries(seriesResult, containerRes);
 }
 
-
 btnRemoveAll.addEventListener('click', handleRemoveAll);
+
+function handleReset (event) {
+  event.preventDefault();
+  handleRemoveAll();
+  seriesResult = [];
+  input.value = '';
+  renderSeries(seriesResult,containerRes);
+  input.value = '';
+}
+
+btnReset.addEventListener('click', handleReset);
