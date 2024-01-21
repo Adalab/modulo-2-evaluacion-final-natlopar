@@ -40,8 +40,13 @@ h2 {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  @media (min-width: 768px) {
+   flex-direction: row;
+   justify-content: flex-start;
+  }
 
   &__input {
+    padding: 4px;
     height: 30px;
     width: 200px;
     font-size: 2rem;
@@ -55,10 +60,13 @@ h2 {
     @media (min-width: 768px) {
       height: 50px;
       width: 300px;
+     
+
     }
   }
 
   &__btn {
+    cursor: pointer;
     color: $colorWhite;
     font-family: $font-main;
     font-size: 2rem;
@@ -79,8 +87,9 @@ h2 {
   flex-direction: row;
   margin: 50px 20px;
   &__fav {
-    padding: 10px;
-    border: 2px solid rgb(236, 48, 196);
+    
+    padding: 5px 10px;
+    border: 2px solid rgb(117, 33, 138);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -88,8 +97,19 @@ h2 {
     @media (min-width: 768px) {
       padding: 20px;
     }
+    &--title {
+      color: $colorWhite;
+      font-family: $font-main;
+      font-size: 2rem;
+      background-color: rgb(117, 33, 138);
+      text-align: center;
+      padding: 15px;
+      border-radius: 15px;
+      padding: 4px;
+    }
     // max-width: 30vw;
     &--btn {
+      cursor: pointer;
       padding: 4px;
       border-radius: 10px;
       border: solid 1px $colorPink;
@@ -111,8 +131,8 @@ h2 {
     }
   }
   &__res {
-    padding: 10px;
-    border: 2px solid rgb(68, 38, 203);
+    padding: 5px 10px;
+    border: 2px solid rgb(101, 131, 230);
     border-radius: 15px;
     display: flex;
     flex-direction: column;
@@ -121,6 +141,16 @@ h2 {
     gap: 30px;
     @media (min-width: 768px) {
       padding: 20px;
+    }
+    &--title {
+      color: $colorWhite;
+      font-family: $font-main;
+      font-size: 2rem;
+      background-color: rgb(101, 131, 230);
+      text-align: center;
+      padding: 15px;
+      border-radius: 15px;
+      padding: 4px;
     }
     &--ul {
       display: flex;
