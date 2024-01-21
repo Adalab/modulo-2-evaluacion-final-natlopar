@@ -1,4 +1,5 @@
 'use strict';
+import './removeFavorite.js';
 
 const input = document.querySelector('.js-input');
 const btnSearch = document.querySelector('.js-btnSearch');
@@ -41,20 +42,25 @@ function renderSeries(arraySeries, container) {
     const img = document.createElement('img');
     const title = document.createElement('h3');
     const icon = document.createElement('i');
-    img.setAttribute('src', imageUrl);
-    img.setAttribute('class', 'card__img');
-    img.setAttribute('alt', 'imagen anime');
-    container.appendChild(li);
-    li.appendChild(articleEl);
+    
     articleEl.appendChild(icon);
-    articleEl.appendChild(img);
-    title.setAttribute('class', 'card__title');
-    title.appendChild(titleText);
     icon.setAttribute(
       'class',
       'fa-solid fa-circle-xmark js-btnRemove card__btn'
     );
     icon.setAttribute('id', serie.mal_id);
+   
+    img.setAttribute('src', imageUrl);
+    img.setAttribute('class', 'card__img');
+    img.setAttribute('alt', 'imagen anime');
+    articleEl.appendChild(img);
+
+    container.appendChild(li);
+    li.appendChild(articleEl);
+   
+    title.setAttribute('class', 'card__title');
+    title.appendChild(titleText);
+
     articleEl.setAttribute('id', serie.mal_id);
     articleEl.setAttribute('class', 'js-article card');
     articleEl.appendChild(title);
@@ -86,11 +92,11 @@ function listenerRemoveFavorites() {
 function listenerClickResult() {
   const articles = document.querySelectorAll('.js-article');
   for (const article of articles) {
-    article.addEventListener('click', handleClickResults);
+    article.addEventListener('click', handleClickInResults);
   }
 }
 
-function handleClickResults(event) {
+function handleClickInResults(event) {
   card = event.currentTarget;
   if (card.classList.contains('favorite')) {
     removeFavorite();
@@ -124,13 +130,15 @@ function addFavorite(event) {
 function removeFavorite(event) {
   card.classList.remove('favorite');
   const idCardSelected = card.id;
-  const indexFav = favoriteSeries.findIndex(
-    (oneSerie) => oneSerie.mal_id === parseInt(idCardSelected)
-  );
-  favoriteSeries.splice(indexFav, 1);
-  localStorage.setItem('series', JSON.stringify(favoriteSeries));
-  renderSeries(favoriteSeries, containerFav);
+  removeSerie(idCardSelected);
+  // const indexFav = favoriteSeries.findIndex(
+  //   (oneSerie) => oneSerie.mal_id === parseInt(idCardSelected)
+  // );
+  // favoriteSeries.splice(indexFav, 1);
+  // localStorage.setItem('series', JSON.stringify(favoriteSeries));
+  // renderSeries(favoriteSeries, containerFav);
 }
+
 
 function getLocalSeries() {
   const seriesLocalStorage = JSON.parse(localStorage.getItem('series'));
@@ -140,37 +148,6 @@ function getLocalSeries() {
 }
 
 getLocalSeries();
-
-function handleRemoveFavorite(event) {
-  console.log('click');
-  const btnClick = event.currentTarget;
-  const articleClick = btnClick.parentElement;
-  const idFavoriteClick = btnClick.id;
-
-  const indexRemove = favoriteSeries.findIndex(
-    (serie) => serie.mal_id === parseInt(idFavoriteClick)
-  );
-  favoriteSeries.splice(indexRemove, 1);
-
-  localStorage.setItem('series', JSON.stringify(favoriteSeries));
-  renderSeries(favoriteSeries, containerFav);
-
-  changeStyle(articleClick);
-}
-
-function changeStyle(articleClick) {
-  const articles = document.querySelectorAll('.js-article');
-  for (const article of articles) {
-    const idArticle = article.id;
-    if (articleClick.id === idArticle) {
-      article.classList.remove('favorite');
-    }
-  }
-}
-
-function changeStyleArticle(articleClick) {
-
-}
 
 function handleRemoveAll () {
   favoriteSeries = []; 
@@ -187,7 +164,7 @@ function handleReset (event) {
   seriesResult = [];
   input.value = '';
   renderSeries(seriesResult,containerRes);
-  input.value = '';
+
 }
 
 btnReset.addEventListener('click', handleReset);
