@@ -9,7 +9,7 @@ li {
   gap: 3px;
   justify-content: center;
   align-items: center;
- 
+
   // @media (min-width: 768px) {
   //     width: 20vw;
   // }
@@ -36,39 +36,92 @@ h2 {
   margin: 20px;
   display: flex;
   gap: 10px;
-  width: 100vw;
+  // width: 100vw;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   &__input {
     height: 30px;
-    width: 300px;
+    width: 200px;
+    font-size: 2rem;
+    border-color: $colorPink;
+    color: $colorPink;
+    &::placeholder {
+      color: pink;
+      font-family: $font-main;
+      border-color: pink;
+    }
+    @media (min-width: 768px) {
+      height: 50px;
+      width: 300px;
+    }
+  }
+
+  &__btn {
+    color: $colorWhite;
+    font-family: $font-main;
+    font-size: 2rem;
+    background-color: $colorPink;
+    padding: 4px;
+    border-radius: 25px;
+    border: solid 1px $colorPink;
+    @media (min-width: 768px) {
+      font-size: 2rem;
+      padding: 10px;
+    }
   }
 }
 
 .container {
   display: flex;
-  gap: 20px;
-  width: 100vw;
+  gap: 10px;
+  flex-direction: row;
   margin: 50px 20px;
-
   &__fav {
-    padding: 20px;
+    padding: 10px;
     border: 2px solid rgb(236, 48, 196);
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
     gap: 30px;
+    @media (min-width: 768px) {
+      padding: 20px;
+    }
+    // max-width: 30vw;
+    &--btn {
+      padding: 4px;
+      border-radius: 10px;
+      border: solid 1px $colorPink;
+      font-size: 1.5rem;
+      color: $colorWhite;
+      font-family: $font-main;
+      background-color: $colorPink;
+      @media (min-width: 768px) {
+        font-size: 2rem;
+        padding: 10px;
+      }
+    }
 
     &--ul {
       display: flex;
-      flex-wrap: column;
+      flex-direction: column;
+      flex-wrap: wrap;
       gap: 20px;
     }
   }
   &__res {
-    padding: 20px;
+    padding: 10px;
     border: 2px solid rgb(68, 38, 203);
+    border-radius: 15px;
     display: flex;
     flex-direction: column;
+    min-width: 50%;
     // align-items: center;
     gap: 30px;
+    @media (min-width: 768px) {
+      padding: 20px;
+    }
     &--ul {
       display: flex;
       flex-wrap: wrap;

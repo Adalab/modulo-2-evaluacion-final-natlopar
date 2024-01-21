@@ -155,7 +155,10 @@ function handleRemoveFavorite(event) {
   localStorage.setItem('series', JSON.stringify(favoriteSeries));
   renderSeries(favoriteSeries, containerFav);
 
+  changeStyle(articleClick);
+}
 
+function changeStyle(articleClick) {
   const articles = document.querySelectorAll('.js-article');
   for (const article of articles) {
     const idArticle = article.id;
@@ -163,10 +166,6 @@ function handleRemoveFavorite(event) {
       article.classList.remove('favorite');
     }
   }
-
-
-
-
 }
 
 function changeStyleArticle(articleClick) {

@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Buscador de series de Anime</title>
     <link rel="stylesheet" href="./scss/main.scss">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap" rel="stylesheet">
     <link rel="icon" href="/public/images/_d087aaaf-2138-441f-8d03-dd4382de4583.jpeg" />
     <script src="https://kit.fontawesome.com/40a2c402a8.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header class="header">
-      <h1>Buscador de Series de Anime</h1>
+      <h1 class="header__title">Buscador de Series de Anime</h1>
     </header>
     <main>
       <form class="form">
-          <input type="text" class="form__input js-input">
-          <input type="submit" value="Buscar" class="form__btn js-btnSearch ">
+          <input type="text" class="form__input js-input" placeholder="Ejemplo: Sailor Moon">
+          <input type="submit" value="Buscar" class="form__btn js-btnSearch">
           <button class="form__btn js-reset">Reset</button>
       </form>
       <div class="container">
@@ -26,9 +29,9 @@
         </article> -->
         <section class="container__fav">
           <h2>Series Favoritas</h2>
-          <ul class="container__res--ul js-containerFav">
+          <ul class="container__fav--ul js-containerFav">
           </ul>
-          <button class="js-removeFav">Eliminar favoritos</button>
+          <button class="js-removeFav container__fav--btn">Eliminar favoritos</button>
         </section>
         <section class="container__res">
           <h2>Resultados</h2>

@@ -1,6 +1,17 @@
 .header {
+  background-color: $colorPink;
+  width: 100vw;
   height: 150px;
   display: flex;
+  text-align: center;
   justify-content: center;
   align-items: center;
+  &__title {
+    color: $colorWhite;
+    font-family: $font-main;
+    font-size: 3rem;
+    @media (min-width: 768px) {
+      font-size: 5rem;
+    }
+  }
 }
