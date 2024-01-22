@@ -33,8 +33,7 @@ function renderSeries(arraySeries, container) {
       'class',
       'fa-solid fa-circle-xmark js-btnRemove card__btn'
     );
-    icon.setAttribute('id', serie.mal_id);
-
+    
     img.setAttribute('src', imageUrl);
     img.setAttribute('class', 'card__img');
     img.setAttribute('alt', 'imagen anime');
@@ -50,6 +49,7 @@ function renderSeries(arraySeries, container) {
     articleEl.setAttribute('id', serie.mal_id);
     articleEl.setAttribute('class', 'js-article card');
     articleEl.appendChild(title);
+    
     if (container === containerRes) {
       li.classList.add('js-liResult');
       articleEl.removeChild(icon);
