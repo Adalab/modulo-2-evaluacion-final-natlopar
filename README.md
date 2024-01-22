@@ -1,10 +1,42 @@
-![Adalab](https://beta.adalab.es/resources/images/adalab-logo-155x61-bg-white.png)
-
 # Buscador series de Anime
 
-Ahoy! Este es nuestro Starter Kit creado en **node y vite**. ¿Y qué es un Starter kit? Pues es una **plantilla de proyecto con funcionalidades preinstaladas y preconfiguradas**.
+![Buscador de series Anime](/public/images/buscador1.png)
 
-Este Kit incluye un motor de plantillas HTML, el preprocesador SASS y un servidor local y muchas cosas más. El Kit nos ayuda a trabajar más cómodamente, nos automatiza tareas.
+Hola! 👩‍💻
+
+Este es mi proyecto de evaluación del segundo módulo de Adalab, correspondiente a **Javascript**.
+
+## Objetivo
+
+Desarrollar una aplicación web de búsqueda de series de anime, que nos permita, tras la búsqueda de la serie elegida por la usuaria,
+des/marcar las elegidas como favoritas y guardarlas en Local Storage.
+
+
+## Funcionalidades
+
+Las funcionalidades de esta página web son las siguientes:
+
+- Obtención de las series elegidas por la usuaria a través de un API, tras introducir el nombre de la serie en un buscador.
+- Posibilidad de añadirlas a un listado de favoritos, seleccionándolas una a una y cambiando así su estilo.
+- Almacenamiento del listado de favoritos en Local Storage, de manera que podamos acceder a este listado aunque la usuaria haya cerrado la página y la haya vuelto a abrir, y aparezcan automáticamente en su listado correspondiente al recargar la página.
+- Posibilidad de eliminar las series favoritas una a una desde el listado de favoritas o seleccionándolas directamente desde el listado de resultados. También se pueden borrar las favoritas mediante el botón "Eliminar Favoritos".
+- Al retirar una serie del listado de favoritos, su estilo vuelve al original en el listado de resultados.
+- Botón de "Reset" para vaciar los listados, el Local Storage y el input.
+
+## Maquetación
+
+Es un proyecto desarrollado con Sass y con diseño responsive.
+
+**Mobile**
+![Buscador de series Anime](/public/images/buscador3.png)
+
+**Tablet**
+![Buscador de series Anime](/public/images/buscador2.png)
+
+
+## Guía de uso rápido
+
+Este proyecto incluye un Kit que contiene un motor de plantillas HTML, el preprocesador SASS y un servidor local y muchas cosas más.
 
 En el Kit hay 3 tipos de ficheros y carpetas:
 
@@ -13,27 +45,18 @@ En el Kit hay 3 tipos de ficheros y carpetas:
 - La carpeta `public/`, que tiene fichero estáticos como imágenes, fuentes, favicon, librerías de JavaScript antiguas (jQuery, ...)
 - Y la carpeta `docs/`, que es generada automáticamente cuando arrancamos el proyecto. El Kit lee los ficheros que hay dentro de `src/` y `public/`, los procesa y los genera dentro de `public/` y `docs/`.
 
-## Guía de inicio rápido
+
 
 > **NOTA:** Necesitas tener instalado [Node JS](https://nodejs.org/) con una versión superior a la 14 para trabajar con este Starter Kit:
 
-### Pasos a seguir cada vez que queremos arrancar un proyecto desde cero:
 
-1. **Crea tu propio repositorio.**
-1. Descarga este **Starter kit desde GitHub**.
-   - No recomendamos que clones este repo ya que no podrás añadir commits.
-1. **Copia todos los ficheros** de este Starter kit en la carpeta raíz de tu repositorio.
-   - Recuerda que debes copiar **también los ficheros ocultos** que comienzan por un punto.
-   - Si has decidido clonar este repo, no debes copiar la carpeta `.git`. Si lo haces estarás machacando tu propio repositorio.
-1. **Abre una terminal** en la carpeta raíz de tu repositorio.
-1. **Instala las dependencias** locales ejecutando en la terminal el comando:
+### Pasos para arrancar el proyecto:
+
+**Instala las dependencias** locales ejecutando en la terminal el comando:
 
 ```bash
 npm install
 ```
-
-### Pasos para arrancar el proyecto:
-
 Una vez hemos instalado las dependencias, vamos a arrancar el proyecto. **El proyecto hay que arrancarlo cada vez que te pongas a programar.** Para ello ejecuta el comando:
 
 ```bash
@@ -42,7 +65,7 @@ npm run dev
 
 Este comando:
 
-- **Abre una ventana de Chrome y muestra tu página web**, al igual que hace el plugin de VS Code Live Server (Go live).
+- **Abre una ventana de Chrome y muestra tu página web**.
 - También **observa** todos los ficheros que hay dentro de la carpeta `src/`, para que cada vez que modifiques un fichero **refresca tu página en Chrome**.
 - También **procesa los ficheros** HTML, SASS / CSS y JS. Por ejemplo:
    - Convierte los ficheros SASS en CSS.
@@ -77,19 +100,8 @@ npm run deploy
 ```
 
 son un atajo que nos genera la versión de producción y hace push de la carpeta `docs/` del tirón. Te recomendamos ver el fichero `package.json` para aprender cómo funciona.
-<!--
-## Flujo de archivos con Gulp
 
-Estas tareas de Gulp producen el siguiente flujo de archivos:
 
-![Gulp flow](./gulp-flow.png)
-
-## `gulpfile.js` y `config.json`
-
-Nuestro **gulpfile.js** usa el fichero `config.json` de configuración con las rutas de los archivos a generar / observar.
-
-De esta manera separarmos las acciones que están en `gulpfile.js` de la configuración de las acciones que están en `config.json`.
--->
 ## Estructura de carpetas
 
 La estructura de carpetas tiene esta pinta:
@@ -105,4 +117,4 @@ src
  └─ index.html
 ```
 
-> **NOTA:** Los partials de HTML y SASS del proyecto son orientativos. Te recomendamos usar los que quieras, y borrar los que no uses.
+q
