@@ -42,7 +42,7 @@ function renderSeries(arraySeries, container) {
     const img = document.createElement('img');
     const title = document.createElement('h3');
     const icon = document.createElement('i');
-    
+    const p = document.createElement('p');
     articleEl.appendChild(icon);
     icon.setAttribute(
       'class',
@@ -131,12 +131,6 @@ function removeFavorite(event) {
   card.classList.remove('favorite');
   const idCardSelected = card.id;
   removeSerie(idCardSelected);
-  // const indexFav = favoriteSeries.findIndex(
-  //   (oneSerie) => oneSerie.mal_id === parseInt(idCardSelected)
-  // );
-  // favoriteSeries.splice(indexFav, 1);
-  // localStorage.setItem('series', JSON.stringify(favoriteSeries));
-  // renderSeries(favoriteSeries, containerFav);
 }
 
 
