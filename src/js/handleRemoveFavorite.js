@@ -3,14 +3,6 @@ function handleRemoveFavorite(event) {
   const articleClick = btnClick.parentElement;
   const idFavoriteClick = btnClick.id;
   removeSerie(idFavoriteClick);
-//   const indexRemove = favoriteSeries.findIndex(
-//     (serie) => serie.mal_id === parseInt(idFavoriteClick)
-//   );
-//   favoriteSeries.splice(indexRemove, 1);
-
-//   localStorage.setItem('series', JSON.stringify(favoriteSeries));
-//   renderSeries(favoriteSeries, containerFav);
-
   changeStyle(articleClick);
 }
 
