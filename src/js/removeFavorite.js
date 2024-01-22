@@ -1,7 +1,7 @@
 function handleRemoveFavorite(event) {
   const btnClick = event.currentTarget;
   const articleClick = btnClick.parentElement;
-  const idFavoriteClick = btnClick.id;
+  const idFavoriteClick = articleClick.id;
   removeSerie(idFavoriteClick);
 //   const indexRemove = favoriteSeries.findIndex(
 //     (serie) => serie.mal_id === parseInt(idFavoriteClick)

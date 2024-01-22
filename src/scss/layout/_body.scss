@@ -1,4 +1,4 @@
-li {
+.list {
   list-style: none;
 }
 
@@ -134,7 +134,8 @@ li {
     margin-bottom: 50px;
   }
   &__input {
-    padding: 4px;
+    font-family: $font-main;
+    padding: 5px;
     height: 30px;
     width: 200px;
     font-size: 2rem;

@@ -48,7 +48,7 @@ function renderSeries(arraySeries, container) {
       'class',
       'fa-solid fa-circle-xmark js-btnRemove card__btn'
     );
-    icon.setAttribute('id', serie.mal_id);
+    // icon.setAttribute('id', serie.mal_id);
    
     img.setAttribute('src', imageUrl);
     img.setAttribute('class', 'card__img');
