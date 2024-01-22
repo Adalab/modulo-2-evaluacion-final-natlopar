@@ -16,10 +16,7 @@ function renderSeries(arraySeries, container) {
     const titleText = document.createTextNode(serie.title);
     let imageUrl = serie.images.jpg.image_url;
     const newImageUrl = 'https://placehold.co/210x295?text=NoImageFound';
-    if (
-      imageUrl ===
-      'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'
-    ) {
+    if (imageUrl === 'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png') {
       imageUrl = newImageUrl;
     }
     const li = document.createElement('li');
@@ -29,10 +26,8 @@ function renderSeries(arraySeries, container) {
     const icon = document.createElement('i');
 
     articleEl.appendChild(icon);
-    icon.setAttribute(
-      'class',
-      'fa-solid fa-circle-xmark js-btnRemove card__btn'
-    );
+    icon.setAttribute('class',
+      'fa-solid fa-circle-xmark js-btnRemove card__btn');
     
     img.setAttribute('src', imageUrl);
     img.setAttribute('class', 'card__img');
