@@ -11,7 +11,8 @@ btnSearch.addEventListener('click', handleSearchApi);
 function getLocalSeries() {
   const seriesLocalStorage = JSON.parse(localStorage.getItem('series'));
   if (seriesLocalStorage) {
-    renderSeries(seriesLocalStorage, containerFav);
+    favoriteSeries = seriesLocalStorage;
+    renderSeries(favoriteSeries, containerFav);
   }
 }
 
