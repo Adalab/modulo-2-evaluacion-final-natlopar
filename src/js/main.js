@@ -17,6 +17,7 @@ function getLocalSeries() {
 
 getLocalSeries();
 
+
 function handleRemoveAll() {
   favoriteSeries = [];
   localStorage.setItem('series', JSON.stringify(favoriteSeries));

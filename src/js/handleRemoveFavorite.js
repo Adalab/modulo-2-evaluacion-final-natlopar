@@ -1,4 +1,5 @@
 function handleRemoveFavorite(event) {
+  console.log('click');
   const btnClick = event.currentTarget;
   const articleClick = btnClick.parentElement;
   const idFavoriteClick = btnClick.id;

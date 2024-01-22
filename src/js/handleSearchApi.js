@@ -41,6 +41,7 @@ function renderSeries(arraySeries, container) {
     articleEl.appendChild(img);
 
     container.appendChild(li);
+    li.setAttribute('class', 'list');
     li.appendChild(articleEl);
 
     title.setAttribute('class', 'card__title');
@@ -50,7 +51,7 @@ function renderSeries(arraySeries, container) {
     articleEl.setAttribute('class', 'js-article card');
     articleEl.appendChild(title);
     if (container === containerRes) {
-      li.setAttribute('class', 'js-liResult list');
+      li.classList.add('js-liResult');
       articleEl.removeChild(icon);
       if (seriesLocalStorage) {
         for (const serie of seriesLocalStorage) {
