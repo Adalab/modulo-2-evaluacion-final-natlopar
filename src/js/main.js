@@ -6,6 +6,18 @@ import './handleClickInResults.js';
 import './handleRemoveFavorite.js';
 
 
+function handleLog (event) {
+  event.preventDefault();
+  console.log('tienes '+ favoriteSeries.length + ' favoritas');
+
+}
+
+
+
+
+btnLog.addEventListener('click', handleLog);
+
+
 btnSearch.addEventListener('click', handleSearchApi);
 
 function getLocalSeries() {
@@ -13,6 +25,7 @@ function getLocalSeries() {
   if (seriesLocalStorage) {
     favoriteSeries = seriesLocalStorage;
     renderSeries(favoriteSeries, containerFav);
+
   }
 }
 

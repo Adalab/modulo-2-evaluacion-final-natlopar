@@ -13,6 +13,14 @@ function renderSeries(arraySeries, container) {
   container.innerHTML = '';
   const seriesLocalStorage = JSON.parse(localStorage.getItem('series'));
   for (const serie of arraySeries) {
+    let score = document.createTextNode(serie.score);
+    if( serie.score > 7) {
+      score = document.createTextNode (serie.score + 'recomendada');
+    }
+    const scoreText = document.createElement(`p`);
+    scoreText.appendChild(score);
+
+    console.log(score);
     const titleText = document.createTextNode(serie.title);
     let imageUrl = serie.images.jpg.image_url;
     const newImageUrl = 'https://placehold.co/210x295?text=NoImageFound';
@@ -24,7 +32,7 @@ function renderSeries(arraySeries, container) {
     const img = document.createElement('img');
     const title = document.createElement('h3');
     const icon = document.createElement('i');
-
+    articleEl.appendChild(scoreText);
     articleEl.appendChild(icon);
     icon.setAttribute('class',
       'fa-solid fa-circle-xmark js-btnRemove card__btn');

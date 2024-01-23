@@ -4,6 +4,7 @@ const containerFav = document.querySelector('.js-containerFav');
 const containerRes = document.querySelector('.js-containerRes');
 const btnRemoveAll = document.querySelector('.js-removeFav');
 const btnReset = document.querySelector('.js-reset');
+const btnLog = document.querySelector('.js-log');
 let card = '';
 let seriesResult = [];
 let favoriteSeries = [];
